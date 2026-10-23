@@ -1,0 +1,1114 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+
+/* ================================
+   ОСНОВА
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    background: #050505;
+
+    color: #eeeeee;
+
+    font-family: "Rajdhani", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* ================================
+   ФОНОВЫЙ КОД
+================================ */
+
+.code-background {
+
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    z-index: -10;
+
+    color: #dfff00;
+
+    opacity: .035;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    transform:
+        rotate(-6deg)
+        scale(1.4);
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.header {
+
+    height: 75px;
+
+    padding: 0 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    background: rgba(5,5,5,.94);
+
+    border-bottom: 1px solid #282828;
+
+    backdrop-filter: blur(12px);
+}
+
+
+.logo {
+
+    font-size: 23px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.logo span {
+
+    color: #dfff00;
+
+    text-shadow:
+        0 0 10px #dfff00;
+}
+
+
+nav {
+
+    display: flex;
+
+    gap: 30px;
+}
+
+nav a {
+
+    color: #777;
+
+    text-decoration: none;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 12px;
+
+    transition: .3s;
+}
+
+nav a:hover {
+
+        
+
+    text-shadow:
+        0 0 10px #dfff00;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+
+    min-height: calc(100vh - 75px);
+
+    padding: 70px 10%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid #222;
+}
+
+
+.hero-text {
+
+    max-width: 650px;
+}
+
+
+.system-name {
+
+    color: #dfff00;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 30px;
+}
+
+
+h1 {
+
+    font-size: clamp(70px, 10vw, 145px);
+
+    line-height: .78;
+
+    letter-spacing: -6px;
+}
+
+h1 span {
+
+    color: transparent;
+
+    -webkit-text-stroke: 2px #dfff00;
+
+    text-shadow:
+        0 0 25px rgba(223,255,0,.2);
+}
+
+
+.description {
+
+    max-width: 500px;
+
+    margin-top: 40px;
+
+    color: #777;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+.description b {
+
+    color: #dfff00;
+}
+
+
+.buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+    flex-wrap: wrap;
+}
+
+
+.button {
+
+    display: inline-block;
+
+    padding: 13px 25px;
+
+    color: #050505;
+
+    background: white;
+
+    text-decoration: none;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 12px;
+
+    transition: .3s;
+}
+
+.button:hover {
+
+    background: #dfff00;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 25px rgba(223,255,0,.4);
+}
+
+
+.solver-button {
+
+    background: #dfff00;
+}
+
+
+/* ================================
+   SOLVER В HERO
+================================ */
+
+.solver-container {
+
+    width: 430px;
+
+    height: 430px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.solver-image {
+
+    width: 260px;
+
+    height: 260px;
+
+    object-fit: contain;
+
+    position: relative;
+
+    z-index: 5;
+
+    filter:
+        drop-shadow(0 0 12px #dfff00)
+        drop-shadow(0 0 35px rgba(223,255,0,.4));
+
+    animation:
+        solverRotate 12s linear infinite;
+}
+
+
+/*
+    Сам символ вращается,
+    а кольца вращаются
+    с другой скоростью.
+*/
+
+.solver-ring {
+
+    position: absolute;
+
+    border: 1px solid #dfff00;
+
+    border-radius: 50%;
+
+    opacity: .35;
+}
+
+.ring-one {
+
+    width: 330px;
+    height: 330px;
+
+    animation:
+        ringRotate 15s linear infinite;
+}
+
+.ring-two {
+
+    width: 390px;
+    height: 390px;
+
+    border-style: dashed;
+
+    animation:
+        ringRotateReverse 20s linear infinite;
+}
+
+
+.solver-code {
+
+    position: absolute;
+
+    color: #dfff00;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 10px;
+
+    opacity: .5;
+
+    line-height: 1.8;
+}
+
+.code-left {
+
+    left: 0;
+
+    top: 80px;
+}
+
+.code-right {
+
+    right: 0;
+
+    bottom: 90px;
+}
+
+
+@keyframes solverRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+@keyframes ringRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+
+}
+
+
+@keyframes ringRotateReverse {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* ================================
+   СЕКЦИИ
+================================ */
+
+.characters,
+.solver-section,
+.about {
+
+    padding: 120px 10%;
+
+    border-bottom: 1px solid #222;
+}
+
+
+.section-number {
+
+    color: #dfff00;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+
+h2 {
+
+    font-size: clamp(45px, 7vw, 90px);
+
+    line-height: .85;
+
+    margin-bottom: 20px;
+}
+
+
+.section-description {
+
+    color: #555;
+
+    font-family: "Share Tech Mono", monospace;
+
+    margin-bottom: 60px;
+}
+
+
+/* ================================
+   КАРТОЧКИ ПЕРСОНАЖЕЙ
+================================ */
+
+.characters-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.character-card {
+
+    position: relative;
+
+    background: #090909;
+
+    border: 1px solid #2b2b2b;
+
+    min-height: 550px;
+
+    overflow: hidden;
+
+    transition: .4s;
+}
+
+
+.character-card:hover {
+
+    border-color: #dfff00;
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 0 35px rgba(223,255,0,.08);
+}
+
+
+/* картинка персонажа */
+
+.character-image {
+
+    height: 330px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(223,255,0,.12),
+            transparent 60%
+        );
+}
+
+
+.character-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: .5s;
+
+    filter:
+        drop-shadow(0 0 10px rgba(223,255,0,.2));
+}
+
+
+.character-card:hover
+.character-image img {
+
+    transform:
+        scale(1.08)
+        translateY(-5px);
+}
+
+
+.character-info {
+
+    padding: 25px;
+}
+
+
+.unit {
+
+    color: #555;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 10px;
+
+    margin-bottom: 10px;
+}
+
+
+.character-info h3 {
+
+    font-size: 50px;
+
+    color: #dfff00;
+
+    margin-bottom: 5px;
+}
+
+
+.character-info p {
+
+    color: #777;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.status {
+
+    margin-top: 20px;
+
+    color: #dfff00;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 10px;
+}
+
+
+.status span {
+
+    width: 7px;
+    height: 7px;
+
+    display: inline-block;
+
+    background: #dfff00;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px #dfff00;
+
+    margin-right: 7px;
+}
+
+
+.status.danger {
+
+    color: #ff3333;
+}
+
+
+.status.danger span {
+
+    background: #ff3333;
+
+    box-shadow:
+        0 0 10px #ff3333;
+}
+
+
+/* ================================
+   ABSOLUTE SOLVER
+================================ */
+
+.solver-section {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    min-height: 750px;
+
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(223,255,0,.08),
+            transparent 30%
+        );
+}
+
+
+.solver-info {
+
+    max-width: 600px;
+}
+
+
+.solver-info h2 span {
+
+    color: transparent;
+
+    -webkit-text-stroke: 2px #dfff00;
+}
+
+
+.solver-info > p {
+
+    color: #777;
+
+    font-family: "Share Tech Mono", monospace;
+
+    line-height: 1.8;
+
+    margin-top: 15px;
+}
+
+
+.solver-info strong {
+
+    color: #ff3333;
+}
+
+
+.commands {
+
+    margin-top: 35px;
+}
+
+
+.commands div {
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #222;
+
+    color: #666;
+
+    font-family: "Share Tech Mono", monospace;
+
+    transition: .3s;
+}
+
+
+.commands div:hover {
+
+    color: #dfff00;
+
+    padding-left: 15px;
+}
+
+
+.commands span {
+
+    color: #dfff00;
+
+    margin-right: 15px;
+}
+
+
+/* ================================
+   БОЛЬШОЙ SOLVER
+================================ */
+
+.big-solver {
+
+    width: 450px;
+
+    height: 450px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.big-solver img {
+
+    width: 300px;
+
+    height: 300px;
+
+    object-fit: contain;
+
+    position: relative;
+
+    z-index: 5;
+
+    filter:
+        drop-shadow(0 0 15px #dfff00)
+        drop-shadow(0 0 45px rgba(223,255,0,.35));
+
+    animation:
+        solverRotate 10s linear infinite;
+}
+
+
+.solver-glow {
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    background: #dfff00;
+
+    filter: blur(120px);
+
+    opacity: .12;
+}
+
+
+.orbit {
+
+    position: absolute;
+
+    border: 1px solid #dfff00;
+
+    border-radius: 50%;
+
+    opacity: .25;
+}
+
+
+.orbit-one {
+
+    width: 390px;
+    height: 390px;
+
+    animation:
+        ringRotate 13s linear infinite;
+}
+
+
+.orbit-two {
+
+    width: 440px;
+    height: 220px;
+
+    transform: rotate(45deg);
+
+    border-style: dashed;
+
+    animation:
+        ringRotateReverse 17s linear infinite;
+}
+
+
+.solver-warning {
+
+    position: absolute;
+
+    bottom: -25px;
+
+    color: #dfff00;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ================================
+   ТЕРМИНАЛ
+================================ */
+
+.terminal-section {
+
+    padding: 100px 10%;
+
+    background: #030303;
+}
+
+
+.terminal {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    border: 1px solid #292929;
+
+    background: #080808;
+}
+
+
+.terminal-header {
+
+    height: 45px;
+
+    border-bottom: 1px solid #292929;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 15px;
+
+    gap: 15px;
+
+    color: #555;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 11px;
+}
+
+
+.dots {
+
+    display: flex;
+
+    gap: 6px;
+}
+
+
+.dots i {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #333;
+}
+
+
+.dots i:first-child {
+
+    background: #dfff00;
+}
+
+
+.terminal-content {
+
+    padding: 35px;
+
+    color: #666;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 12px;
+
+    line-height: 2;
+}
+
+
+.green {
+
+    color: #7dff00;
+}
+
+
+.yellow {
+
+    color: #dfff00;
+}
+
+
+.red {
+
+    color: #ff3333;
+}
+
+
+.white {
+
+    color: white;
+}
+
+
+/* ================================
+   ABOUT
+================================ */
+
+.about {
+
+    text-align: center;
+}
+
+
+.about p {
+
+    max-width: 650px;
+
+    margin: 30px auto;
+
+    color: #777;
+
+    font-family: "Share Tech Mono", monospace;
+
+    line-height: 1.8;
+}
+
+
+.warning {
+
+    display: inline-block;
+
+    border: 1px solid #dfff00;
+
+    color: #dfff00;
+
+    padding: 12px 20px;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 10px;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+
+    padding: 30px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #444;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 10px;
+}
+
+
+footer b {
+
+    color: #dfff00;
+}
+
+
+/* ================================
+   АДАПТИВ
+================================ */
+
+@media (max-width: 950px) {
+
+    nav {
+
+        display: none;
+    }
+
+
+    .hero {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding-top: 80px;
+    }
+
+
+    .solver-container {
+
+        width: 100%;
+
+        margin-top: 70px;
+    }
+
+
+    .characters-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .solver-section {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .big-solver {
+
+        width: 100%;
+
+        margin-top: 70px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .hero,
+    .characters,
+    .solver-section,
+    .about {
+
+        padding-left: 6%;
+
+        padding-right: 6%;
+    }
+
+
+    h1 {
+
+        font-size: 60px;
+    }
+
+
+    .solver-container {
+
+        transform: scale(.75);
+
+        transform-origin: center;
+    }
+
+
+    .big-solver {
+
+        transform: scale(.75);
+
+        transform-origin: center;
+    }
+
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+}
